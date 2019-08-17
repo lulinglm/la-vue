@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home" @click="gotoAbout">
+      点击调转到about
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import request from '@/utils/request'
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld
+  created () {
+    request({
+      url: '/hello',
+      method: 'GET',
+      data: null
+    })
+  },
+  methods: {
+    gotoAbout () {
+      this.$router.push('./about')
+    }
   }
 }
 </script>
