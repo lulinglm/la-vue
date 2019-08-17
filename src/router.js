@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -16,10 +18,22 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import('./views/About.vue')
     }
   ]
 })
+
+// 跳转加载NProgress
+router.beforeEach((to, from, next) => {
+  if (to.path !== from.path) {
+    NProgress.start()
+  }
+  next()
+})
+
+// 跳转结束取消加载NProgress
+router.afterEach(() => {
+  NProgress.done()
+})
+
+export default router
