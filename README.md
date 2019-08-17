@@ -10,6 +10,39 @@
 ## mock 
  - webpack-server
 
+
+## 工具目录结构 
+```
+tree -L 3 -I "node_modules"
+```
+.
+├── README.md
+├── babel.config.js
+├── buildDoc
+├── mock
+│   └── hello.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── server
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   └── logo.png
+│   ├── main.js
+│   ├── router.js
+│   ├── store.js
+│   ├── utils
+│   │   └── request.js
+│   └── views
+│       ├── About.vue
+│       └── Home.vue
+├── step.md
+└── vue.config.js
+
 ## Project setup
 ```
 npm install
