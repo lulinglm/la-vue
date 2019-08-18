@@ -5,15 +5,12 @@
 </template>
 
 <script>
-import request from '@/utils/request'
 
 export default {
   name: 'home',
   created () {
-    request({
-      url: '/hello',
-      method: 'GET',
-      data: null
+    this.$store.dispatch({
+      type: 'hello/getHello'
     })
   },
   methods: {
