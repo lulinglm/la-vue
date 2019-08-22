@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -11,14 +10,40 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/user',
+      hideInMenu: true,
+      component: () => import('./layouts/UserLayout.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue')
+      path: '/',
+      component: () =>
+      import(/* webpackChunkName: "layout" */ "./layouts/BasicLayout"),
+      children: [
+        {
+          path: "/",
+          redirect: "/home"
+        },
+        {
+          path: "/home",
+          name: "home",
+          meta: { icon: "info-circle", title: "主页" },
+          component: () => import('./views/Home.vue'),
+        
+        },{
+          path: '/about',
+          name: 'about',
+          meta: { icon: "info-circle", title: "详情" },
+          component: { render: h => h("router-view") },
+          children: [
+            {
+              path: "/about/1",
+              name: "about1",
+              meta: { title: "关于页" },
+              component: () => import('./views/About.vue'),
+            }
+          ]
+        },
+      ]
     }
   ]
 })
