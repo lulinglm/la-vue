@@ -17,6 +17,7 @@
 ```
 tree -L 3 -I "node_modules"
 ```
+```
 .
 ├── README.md
 ├── babel.config.js
@@ -44,6 +45,8 @@ tree -L 3 -I "node_modules"
 │       └── Home.vue
 ├── step.md
 └── vue.config.js
+
+```
 
 ## Project setup
 ```
