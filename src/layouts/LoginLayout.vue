@@ -1,18 +1,13 @@
 <template>
-  <div class="user-layout">
+  <div class="LoginLayout">
     <div class="title">登录页</div>
-    <div><img alt="logo" class="logo" :src="logo"/></div>
     <a-button @click="loginBtn" type="primary">登录</a-button>
   </div>
 </template>
 
 <script>
-import logo from "@/assets/logo.png";
 export default {
   data() {
-    return {
-      logo
-    };
   },
   methods: {
     loginBtn() {
@@ -23,7 +18,7 @@ export default {
 </script>
 
 <style lang="less">
-.user-layout {
+.LoginLayout {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;

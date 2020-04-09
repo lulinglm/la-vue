@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+// 动态生成
+// 如果有接口，先拿后端接口后在动态生成
+
 Vue.use(Router)
 
 const router = new Router({
@@ -12,7 +15,7 @@ const router = new Router({
     {
       path: '/user',
       hideInMenu: true,
-      component: () => import('./layouts/UserLayout.vue')
+      component: () => import('./layouts/LoginLayout.vue')
     },
     {
       path: '/',
@@ -27,7 +30,7 @@ const router = new Router({
           path: "/home",
           name: "home",
           meta: { icon: "info-circle", title: "主页" },
-          component: () => import('./views/Home.vue'),
+          component: () => import('./views/form/Home.vue'),
         
         },{
           path: '/about',

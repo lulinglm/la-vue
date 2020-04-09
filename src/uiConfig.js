@@ -1,14 +1,5 @@
 import Vue from 'vue'
-import {
-  Button, message,Menu,   Layout,Icon, Dropdown
-} from "ant-design-vue";
+import Element from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
-
-Vue.use(Button);
-Vue.use(Menu);
-Vue.use(Layout);
-Vue.use(Icon);
-Vue.use(Dropdown);
-
-
-Vue.prototype.$message = message;
+Vue.use(Element, { size: 'small', zIndex: 3000 });

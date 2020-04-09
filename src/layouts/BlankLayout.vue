@@ -1,10 +1,10 @@
 <template>
-  <div class="blank-board-layout">
+  <div class="BlankLayout">
   </div>
 </template>
 
 <style lang="less">
-.blank-board-layout {
+.BlankLayout {
   background: white;
 }
 </style>

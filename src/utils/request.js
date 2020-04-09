@@ -18,6 +18,23 @@ function request (options) {
     })
 }
 
+function requestReturnCatch (options) {
+  options.url = getRealUrl(options.url)
+
+  return axios(options)
+    .then(res => {
+      return res.data.data
+    })
+    .catch(error => {
+      const {
+        response: { status, statusText }
+      } = error
+      console.log('请求错误:' + status + statusText)
+
+      return Promise.reject(error)
+    })
+}
+
 // 处理url格式
 function getRealUrl (url) {
   if (url.substr(0, 1) === '/') {
@@ -27,4 +44,4 @@ function getRealUrl (url) {
   }
 }
 
-export default request
+export default { request, requestReturnCatch }
